@@ -38,14 +38,8 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
-(defun run-clang-format ()
-  (if (or (eq major-mode 'c++-mode)
-          (eq major-mode 'c-mode)
-          (eq major-mode 'cc-mode)) (clang-format-buffer)))
-
 ;; Before save hooks
 (add-before-save-hook 'delete-trailing-whitespace)
-(add-before-save-hook 'run-clang-format)
 
 ;; Template code
 (fset 'write-python-header "\
@@ -67,3 +61,18 @@
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; clang-format
+(defun run-clang-format ()
+  (if (or (eq major-mode 'c-mode)
+          (eq major-mode 'cc-mode)
+          (eq major-mode 'c++-mode)) (clang-format-buffer)))
+(add-before-save-hook 'run-clang-format)
+
+;; rust-mode
+(require 'rust-mode)
+(setq-default rust-format-on-save t)
+
+;; go-mode
+(require 'go-mode)
+(add-before-save-hook 'gofmt-before-save)
