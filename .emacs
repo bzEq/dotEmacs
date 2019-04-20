@@ -2,7 +2,7 @@
 (setq-default inhibit-startup-message t)
 (setq package-archives
       '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-	("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+        ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 (setq-default frame-title-format "%f")
 (setq-default make-backup-files nil)
@@ -19,7 +19,7 @@
 (global-linum-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(defun add-before-save-hook hook
+(defun add-before-save-hook (hook)
   (add-hook 'before-save-hook hook))
 
 (require 'uniquify)
@@ -34,5 +34,20 @@
 (global-set-key (kbd "M-f") 'forward-char)
 (global-set-key (kbd "M-b") 'backward-char)
 
+;; Prefer spaces
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
+
+;; Before save hooks
+(add-before-save-hook 'delete-trailing-whitespace)
+
+;; Template code
+(fset 'write-python-header "\
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+")
+
+(fset 'write-cc-copyright
+      (format
+       "\/\/ Copyright (c) %s Kai Luo <gluokai@gmail.com>. All rights reserved."
+       (format-time-string "%Y")))
