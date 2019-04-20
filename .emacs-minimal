@@ -7,7 +7,7 @@
 (setq-default frame-title-format "%f")
 (setq-default make-backup-files nil)
 (global-auto-revert-mode t)
-(global-hl-line-mode 0)
+(global-hl-line-mode t)
 (show-paren-mode t)
 (display-time-mode t)
 (setq-default column-number-mode t)
@@ -38,14 +38,8 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
-(defun run-clang-format ()
-  (if (or (eq major-mode 'c++-mode)
-          (eq major-mode 'c-mode)
-          (eq major-mode 'cc-mode)) (clang-format-buffer)))
-
 ;; Before save hooks
 (add-before-save-hook 'delete-trailing-whitespace)
-(add-before-save-hook 'run-clang-format)
 
 ;; Template code
 (fset 'write-python-header "\
@@ -57,13 +51,3 @@
       (format
        "\/\/ Copyright (c) %s Kai Luo <gluokai@gmail.com>. All rights reserved."
        (format-time-string "%Y")))
-
-;; Looks
-(require 'monokai-theme)
-(setq-default default-frame-alist
-             '((cursor-color . "white")
-               (font . "Monospace-12")))
-
-;; auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
