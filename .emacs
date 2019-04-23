@@ -4,6 +4,7 @@
       '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (setq-default frame-title-format "%f")
 (setq-default make-backup-files nil)
 (global-auto-revert-mode t)
@@ -76,3 +77,7 @@
 ;; go-mode
 (require 'go-mode)
 (add-before-save-hook 'gofmt-before-save)
+
+;; llvm
+(require 'llvm-mode)
+(require 'tablegen-mode)
