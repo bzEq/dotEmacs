@@ -16,6 +16,7 @@
 (setq-default x-select-enable-clipboard t)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
+(setq-default scroll-bar-mode-explicit t)
 (set-scroll-bar-mode nil)
 (global-linum-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
