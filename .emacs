@@ -84,3 +84,8 @@
 ;; llvm
 (require 'llvm-mode)
 (require 'tablegen-mode)
+
+;; yaml
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.mir\\'" . yaml-mode))
+
