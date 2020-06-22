@@ -22,6 +22,7 @@
 (set-scroll-bar-mode nil)
 (global-linum-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
+(set-fill-column 80)
 
 (defun add-before-save-hook (hook)
   (add-hook 'before-save-hook hook))
