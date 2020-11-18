@@ -74,6 +74,9 @@
           (eq major-mode 'c++-mode)) (clang-format-buffer)))
 (add-before-save-hook 'run-clang-format)
 
+;; yapf
+(py-yapf-enable-on-save)
+
 ;; rust-mode
 (require 'rust-mode)
 (setq-default rust-format-on-save t)
@@ -89,4 +92,3 @@
 ;; yaml
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.mir\\'" . yaml-mode))
-
