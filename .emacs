@@ -1,9 +1,11 @@
 (setq-default debug-on-error t)
 (setq-default inhibit-startup-message t)
-(setq package-archives '(("gnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
-                         ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
-                         ("stable-melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/stable-melpa/")
-                         ("org" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")))
+(setq package-native-compile t)
+(setq package-archives
+      '(("gnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+        ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
+        ("stable-melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/stable-melpa/")
+        ("org" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (setq-default frame-title-format "%f")
@@ -19,8 +21,10 @@
 (tool-bar-mode 0)
 (setq-default scroll-bar-mode-explicit t)
 (set-scroll-bar-mode nil)
-(global-linum-mode)
+;;(global-linum-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
+;;(set-fill-column 80)
+(setq-default cursor-type 'box)
 
 (defun add-before-save-hook (hook)
   (add-hook 'before-save-hook hook))
@@ -40,13 +44,14 @@
 ;; Prefer spaces
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
+(setq-default sh-basic-offset 2)
 
 ;; Before save hooks
-(add-before-save-hook 'delete-trailing-whitespace)
+;;(add-before-save-hook 'delete-trailing-whitespace)
 
 ;; Template code
 (fset 'write-python-header "\
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ")
 
@@ -56,24 +61,28 @@
        (format-time-string "%Y")))
 
 ;; Looks
-(require 'monokai-theme)
+;;(load-theme 'monokai-pro t)
+;;(load-theme 'monokai-alt)
 (setq-default default-frame-alist
-             '((cursor-color . "white")
-               (font . "Monospace-12")))
+              '((cursor-color . "white")
+                (font . "Roboto Mono-12")))
 
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 ;; clang-format
 (defun run-clang-format ()
   (if (or (eq major-mode 'c-mode)
           (eq major-mode 'cc-mode)
-          (eq major-mode 'c++-mode)) (clang-format-buffer)))
-(add-before-save-hook 'run-clang-format)
-
-;; yapf
-(py-yapf-enable-on-save)
+          (eq major-mode 'c++-mode)
+          )
+      (clang-format-buffer)))
+(defun run-clang-format-java ()
+  (if (eq major-mode 'java-mode)
+      (clang-format-buffer)))
+;;(add-before-save-hook 'run-clang-format-java)
 
 ;; rust-mode
 (require 'rust-mode)
@@ -90,3 +99,7 @@
 ;; yaml
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.mir\\'" . yaml-mode))
+
+;; python
+(require 'py-yapf)
+(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
