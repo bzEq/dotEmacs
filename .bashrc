@@ -112,44 +112,45 @@ if ! shopt -oq posix; then
   fi
 fi
 
-function prepend_to_PATH {
-  if [[ ! "$PATH" =~ "$1" ]]; then
-    PATH="$1":${PATH}
+# Begin customization.
+function PrependPATH {
+  if [[ ! "${PATH}" =~ "$1" ]]; then
+    PATH="$1":"${PATH}"
   fi
 }
 
-function append_to_PATH {
-  if [[ ! "$PATH" =~ "$1" ]]; then
-    PATH=${PATH}:"$1"
+function AppendPATH {
+  if [[ ! "${PATH}" =~ "$1" ]]; then
+    PATH="${PATH}":"$1"
   fi
 }
 
-export GOROOT=/opt/go
-export GOPATH=${HOME}/go
-export MY_CLANG=/opt/clang
-export MY_EMACS=/opt/emacs
-export MY_TEXLIVE=/opt/texlive
-export MY_PYTHON=/opt/python
-export MY_BAZEL=/opt/bazel
-export LAPCE=/opt/Lapce
-export LEAN=/opt/lean
+#export GOROOT=/opt/go
+#export GOPATH=${HOME}/go
+#export MY_CLANG=/opt/clang
+#export MY_EMACS=/opt/emacs
+#export MY_TEXLIVE=/opt/texlive
+#export MY_PYTHON=/opt/python
+#export MY_BAZEL=/opt/bazel
+#export LAPCE=/opt/Lapce
+#export LEAN=/opt/lean
 
-prepend_to_PATH "${MY_TEXLIVE}/current/bin/$(arch)-linux"
-prepend_to_PATH "${MY_EMACS}/bin"
-#prepend_to_PATH "${MY_PYTHON}/bin"
-prepend_to_PATH "${MY_CLANG}/bin"
-prepend_to_PATH "${GOROOT}/bin"
-prepend_to_PATH "${GOPATH}/bin"
-prepend_to_PATH "${MY_BAZEL}/bin"
-prepend_to_PATH "${LAPCE}"
-prepend_to_PATH "${LEAN}/bin"
+#PrependPATH "${MY_TEXLIVE}/current/bin/$(arch)-linux"
+#PrependPATH "${MY_EMACS}/bin"
+#PrependPATH "${MY_PYTHON}/bin"
+#PrependPATH "${MY_CLANG}/bin"
+#PrependPATH "${GOROOT}/bin"
+#PrependPATH "${GOPATH}/bin"
+#PrependPATH "${MY_BAZEL}/bin"
+#PrependPATH "${LAPCE}"
+#PrependPATH "${LEAN}/bin"
 
 # Rust
 #export RUSTUP_DIST_SERVER=https://mirrors.sjtug.sjtu.edu.cn/rust-static
 #export RUSTUP_UPDATE_ROOT=https://mirrors.sjtug.sjtu.edu.cn/rust-static/rustup
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+#export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+#export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
-prepend_to_PATH "$HOME/.cargo/bin"
+#PrependPATH "$HOME/.cargo/bin"
 
-[ -r /home/luokai/.byobu/prompt ] && . /home/luokai/.byobu/prompt   #byobu-prompt#
+#[ -r /home/luokai/.byobu/prompt ] && . /home/luokai/.byobu/prompt   #byobu-prompt#
