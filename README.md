@@ -1,1 +1,1 @@
-# My .emacs
+# My dotfiles
