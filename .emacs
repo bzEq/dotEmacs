@@ -1,3 +1,4 @@
+;;(prefer-coding-system 'utf-8)
 (setq-default debug-on-error t)
 (setq-default inhibit-startup-message t)
 ;;(setq package-native-compile t)
