@@ -113,13 +113,13 @@ if ! shopt -oq posix; then
 fi
 
 # Begin customization.
-function PrependPATH {
+function prepend_path {
   if [[ ! "${PATH}" =~ "$1" ]]; then
     PATH="$1":"${PATH}"
   fi
 }
 
-function AppendPATH {
+function append_path {
   if [[ ! "${PATH}" =~ "$1" ]]; then
     PATH="${PATH}":"$1"
   fi
@@ -135,15 +135,15 @@ function AppendPATH {
 #export LAPCE=/opt/Lapce
 #export LEAN=/opt/lean
 
-#PrependPATH "${MY_TEXLIVE}/current/bin/$(arch)-linux"
-#PrependPATH "${MY_EMACS}/bin"
-#PrependPATH "${MY_PYTHON}/bin"
-#PrependPATH "${MY_CLANG}/bin"
-#PrependPATH "${GOROOT}/bin"
-#PrependPATH "${GOPATH}/bin"
-#PrependPATH "${MY_BAZEL}/bin"
-#PrependPATH "${LAPCE}"
-#PrependPATH "${LEAN}/bin"
+#prepend_path "${MY_TEXLIVE}/current/bin/$(arch)-linux"
+#prepend_path "${MY_EMACS}/bin"
+#prepend_path "${MY_PYTHON}/bin"
+#prepend_path "${MY_CLANG}/bin"
+#prepend_path "${GOROOT}/bin"
+#prepend_path "${GOPATH}/bin"
+#prepend_path "${MY_BAZEL}/bin"
+#prepend_path "${LAPCE}"
+#prepend_path "${LEAN}/bin"
 
 # Rust
 #export RUSTUP_DIST_SERVER=https://mirrors.sjtug.sjtu.edu.cn/rust-static
@@ -151,6 +151,6 @@ function AppendPATH {
 #export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 #export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
-#PrependPATH "$HOME/.cargo/bin"
+#prepend_path "$HOME/.cargo/bin"
 
 #[ -r /home/luokai/.byobu/prompt ] && . /home/luokai/.byobu/prompt   #byobu-prompt#
