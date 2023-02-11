@@ -6,5 +6,5 @@
 #alias cloc='cloc --processes=$(nproc)'
 #alias goto-llvm='cd /build/llvm-dev/llvm-project'
 #alias goto-rust='cd /build/rust-dev/rust'
-#alias socks='https_proxy="socks5h://localhost:1080"'
-#alias gp='https_proxy="socks5h://localhost:1080" git pull --recurse-submodules'
+#alias socks='https_proxy="socks5://localhost:1080"'
+#alias gp='https_proxy="socks5://localhost:1080" git pull --recurse-submodules'
