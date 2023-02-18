@@ -150,6 +150,8 @@ function append_path {
 #export RUSTUP_UPDATE_ROOT=https://mirrors.sjtug.sjtu.edu.cn/rust-static/rustup
 #export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 #export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+#export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+#export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 
 #prepend_path "$HOME/.cargo/bin"
 
