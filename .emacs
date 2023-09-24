@@ -4,9 +4,16 @@
 ;;(setq package-native-compile t)
 (setq package-archives
       '(("gnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+        ("nongui" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/nongnu/")
         ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
         ("stable-melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/stable-melpa/")
         ("org" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")))
+;;(setq package-archives
+;;      '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;        ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+;;        ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+;;        ("stable-melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/")
+;;        ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (setq-default frame-title-format "%f")
