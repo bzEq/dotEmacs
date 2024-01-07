@@ -91,8 +91,7 @@ if __name__ == '__main__':
 ")
 
 
-;;(load-theme 'monokai-pro t)
-;;(load-theme 'monokai-alt)
+;;(load-theme 'spacemacs-dark)
 
 ;;(setq-default default-frame-alist
 ;;              '((cursor-color . "white")
