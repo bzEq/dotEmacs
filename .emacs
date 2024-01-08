@@ -91,7 +91,7 @@ if __name__ == '__main__':
 ")
 
 
-;;(load-theme 'spacemacs-dark)
+;;(load-theme 'spacemacs-dark t)
 
 ;;(setq-default default-frame-alist
 ;;              '((cursor-color . "white")
