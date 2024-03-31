@@ -5,8 +5,6 @@ if [[ -d ~/.bashrc.d ]]; then
 fi
 unset rc
 
-export GOPATH="${HOME}/go"
-prepend_to_PATH_if_exists "${GOPATH}/bin"
 prepend_to_PATH_if_exists "/usr/local/cuda/bin"
 prepend_to_PATH_if_exists "/opt/clang/bin"
 
