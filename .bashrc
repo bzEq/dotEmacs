@@ -5,10 +5,10 @@ if [[ -d ~/.bashrc.d ]]; then
 fi
 unset rc
 
-prepend_to_PATH_if_exists "/opt/clang/bin"
-prepend_to_PATH_if_exists "/usr/local/cuda/bin"
 export GOPATH="${HOME}/go"
-append_to_PATH_if_exists "${GOPATH}/bin"
+prepend_to_PATH_if_exists "${GOPATH}/bin"
+prepend_to_PATH_if_exists "/usr/local/cuda/bin"
+prepend_to_PATH_if_exists "/opt/clang/bin"
 
 export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
