@@ -17,6 +17,7 @@
         ))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(setq custom-file "~/.emacs.d/init-custom.el")
 (setq-default frame-title-format "%f")
 (setq-default make-backup-files nil)
 (global-auto-revert-mode t)
@@ -137,3 +138,5 @@ if __name__ == '__main__':
 ;; python
 ;;(require 'py-yapf)
 ;;(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+
+(load-file custom-file)
