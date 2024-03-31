@@ -1,0 +1,19 @@
+function append_to_PATH {
+  if ! [[ "${PATH}" =~ "$1" ]]; then
+    PATH="${PATH}":"$1"
+  fi
+}
+
+function prepend_to_PATH {
+  if ! [[ "${PATH}" =~ "$1" ]]; then
+    PATH="$1":"${PATH}"
+  fi
+}
+
+function append_to_PATH_if_exists {
+  [[ -d "$1" ]] && append_to_PATH "$1"
+}
+
+function prepend_to_PATH_if_exists {
+  [[ -d "$1" ]] && prepend_to_PATH "$1"
+}
