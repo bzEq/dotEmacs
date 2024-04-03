@@ -6,7 +6,7 @@
 [pull]
 	ff = only
 [tar.xz]
-  command = "xz -z -T0"
+	command = "xz -z -T0"
 [tar.zstd]
 	command = "zstd -T0"
 [init]
