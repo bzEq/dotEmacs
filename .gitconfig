@@ -14,6 +14,6 @@
 [submodule]
 	recurse = true
 [http]
-	postBuffer = 16777216
-[core]
-	compression = 0
+	maxRequests = 8
+	lowSpeedLimit = 0
+	lowSpeedTime = 300
