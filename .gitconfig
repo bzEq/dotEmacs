@@ -15,5 +15,5 @@
 	recurse = true
 [http]
 	maxRequests = 8
-	lowSpeedLimit = 0
-	lowSpeedTime = 300
+	lowSpeedLimit = 1000
+	lowSpeedTime = 60
