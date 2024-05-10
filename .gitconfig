@@ -16,4 +16,4 @@
 [http]
 	maxRequests = 8
 	lowSpeedLimit = 1000
-	lowSpeedTime = 60
+	lowSpeedTime = 1800
