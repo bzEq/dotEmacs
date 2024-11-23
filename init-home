@@ -2,8 +2,11 @@
 set -x
 
 BASE=$(dirname $0)
+# Init bash config.
 mkdir -p ${HOME}/.bashrc.d
 cp -r ${BASE}/.bashrc.d/*  ${HOME}/.bashrc.d
-cp ${BASE}/.emacs ${HOME}
-mkdir -p ${HOME}/.emacs.d || touch ${HOME}/.emacs.d/custom.el
 cat ${BASE}/.bashrc >> ${HOME}/.bashrc
+# Init emacs config.
+cp ${BASE}/.emacs ${HOME}
+mkdir -p ${HOME}/.emacs.d && touch ${HOME}/.emacs.d/custom.el
+
