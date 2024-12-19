@@ -104,6 +104,13 @@ if __name__ == '__main__':
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
+;;(require 'clang-format)
+;;(setq-default clang-format-fallback-style "LLVM")
+(defun bind-clang-format-region-keys ()
+  (local-set-key (kbd "C-c C-f") 'clang-format-region))
+(add-hook 'c++-mode-hook 'bind-clang-format-region-keys)
+(add-hook 'c-mode-hook 'bind-clang-format-region-keys)
+
 (defun run-clang-format ()
   (if (or (eq major-mode 'c-mode)
           (eq major-mode 'cc-mode)
