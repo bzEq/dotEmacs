@@ -1,4 +1,5 @@
 ;;(prefer-coding-system 'utf-8)
+(fset 'yes-or-no-p 'y-or-n-p)
 (setq-default debug-on-error t)
 (setq-default inhibit-startup-message t)
 ;;(setq package-native-compile t)
@@ -20,30 +21,29 @@
         ("nongnu"       . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(setq custom-file "~/.emacs.d/custom.el")
+(setq-default custom-file "~/.emacs.d/custom.el")
 (setq-default frame-title-format "%f")
 (setq-default make-backup-files nil)
-(global-auto-revert-mode t)
-(global-hl-line-mode 0)
-(show-paren-mode t)
-;;(display-time-mode t)
-(setq-default column-number-mode t)
-(size-indication-mode t)
 ;;(setq-default x-select-enable-clipboard t)
-;;(menu-bar-mode 0)
-;;(tool-bar-mode 0)
 ;;(setq-default scroll-bar-mode-explicit t)
-;;(set-scroll-bar-mode nil)
-;;(global-linum-mode)
-(fset 'yes-or-no-p 'y-or-n-p)
-;;(set-fill-column 80)
 ;;(setq-default cursor-type 'box)
-
-(defun add-before-save-hook (hook)
-  (add-hook 'before-save-hook hook))
+(global-auto-revert-mode)
+(show-paren-mode)
+(column-number-mode)
+(size-indication-mode)
+(display-time-mode)
+;;(global-hl-line-mode)
+;;(menu-bar-mode)
+;;(tool-bar-mode)
+;;(set-scroll-bar-mode)
+;;(global-linum-mode)
+;;(set-fill-column 80)
 
 (require 'uniquify)
 (setq-default uniquify-buffer-name-style 'post-forward)
+
+(defun add-before-save-hook (hook)
+  (add-hook 'before-save-hook hook))
 
 ;; Global key bindings.
 (global-set-key (kbd "C-a") 'kill-region)
@@ -56,8 +56,7 @@
 
 ;; Prefer spaces.
 (setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-(setq-default sh-basic-offset 2)
+(indent-tabs-mode 0)
 
 ;; Template code
 (fset 'write-python-header "\
@@ -98,9 +97,9 @@ if __name__ == '__main__':
 
 ;;(load-theme 'spacemacs-dark t)
 
-;;(setq-default default-frame-alist
-;;              '((cursor-color . "white")
-;;                (font . "Roboto Mono-12")))
+;;(setq-default
+;; default-frame-alist
+;; '((font . "Roboto Mono-12")))
 
 ;;(require 'auto-complete-config)
 ;;(ac-config-default)
@@ -117,8 +116,7 @@ if __name__ == '__main__':
 (defun run-clang-format ()
   (if (or (eq major-mode 'c-mode)
           (eq major-mode 'cc-mode)
-          (eq major-mode 'c++-mode)
-          )
+          (eq major-mode 'c++-mode))
       (clang-format-buffer)))
 ;;(add-before-save-hook 'run-clang-format)
 
