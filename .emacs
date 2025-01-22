@@ -55,8 +55,8 @@
 (global-set-key (kbd "M-b") 'backward-char)
 
 ;; Prefer spaces.
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-(indent-tabs-mode 0)
 
 ;; Template code
 (fset 'write-python-header "\
