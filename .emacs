@@ -147,4 +147,26 @@ if __name__ == '__main__':
 ;;(require 'py-yapf)
 ;;(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 
+;; GN
+;;(require 'gn-mode)
+;;(add-to-list 'auto-mode-alist '("\\.gn\\'" . gn-mode))
+;;(add-to-list 'auto-mode-alist '("\\.gni\\'" . gn-mode))
+;;(defun gn-format-buffer ()
+;;  (interactive)
+;;  (let ((file-path (buffer-file-name)))
+;;    (if (not file-path)
+;;        (message "Current buffer doesn't have underlying file")
+;;      (if (not (file-writable-p file-path))
+;;          (message "Not writable: %s" file-path)
+;;        (let ((command (format "gn format %s" (shell-quote-argument file-path))))
+;;          (if (zerop (shell-command command))
+;;              (progn
+;;                (revert-buffer t t t) ;; Refresh buffer
+;;                (message "Format successfully: %s" file-path))
+;;            (message "Format failed: %s" file-path)))))))
+;;(defun gn-format-enable-on-save ()
+;;  (interactive)
+;;  (add-hook 'before-save-hook 'gn-format-buffer nil t))
+;;(add-hook 'gn-mode-hook 'gn-format-enable-on-save)
+
 (load-file custom-file)
