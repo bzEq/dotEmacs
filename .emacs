@@ -55,7 +55,7 @@
 (global-set-key (kbd "M-b") 'backward-char)
 
 ;; Prefer spaces.
-(setq-default indent-tabs-mode nil)
+(indent-tabs-mode 0)
 (setq-default tab-width 2)
 
 ;; Template code
@@ -152,18 +152,20 @@ if __name__ == '__main__':
 ;;(add-to-list 'auto-mode-alist '("\\.gn\\'" . gn-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.gni\\'" . gn-mode))
 ;;(defun gn-format-buffer ()
-;;  (interactive)
-;;  (let ((file-path (buffer-file-name)))
-;;    (if (not file-path)
-;;        (message "Current buffer doesn't have underlying file")
-;;      (if (not (file-writable-p file-path))
-;;          (message "Not writable: %s" file-path)
-;;        (let ((command (format "gn format %s" (shell-quote-argument file-path))))
-;;          (if (zerop (shell-command command))
-;;              (progn
-;;                (revert-buffer t t t) ;; Refresh buffer
-;;                (message "Format successfully: %s" file-path))
-;;            (message "Format failed: %s" file-path)))))))
+;;	(interactive)
+;;	(let ((temp-buffer (generate-new-buffer "*gn-format-temp*")))
+;;		(unwind-protect
+;;				(let ((status (apply #'call-process-region
+;;														 nil nil "gn"
+;;														 nil temp-buffer nil
+;;														 `("format" "--stdin"))))
+;;					(cond
+;;					 ((stringp status)
+;;						(error "gn format killed by signal: %s" status))
+;;					 ((not (zerop status))
+;;						(error "gn format failed with code %d" status)))
+;;					(replace-buffer-contents temp-buffer))
+;;			(when (buffer-name temp-buffer) (kill-buffer temp-buffer)))))
 ;;(defun gn-format-enable-on-save ()
 ;;  (interactive)
 ;;  (add-hook 'before-save-hook 'gn-format-buffer nil t))
