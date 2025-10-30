@@ -96,6 +96,7 @@ if __name__ == '__main__':
 
 
 ;;(load-theme 'spacemacs-dark t)
+;;(modus-themes-select 'modus-vivendi-tinted)
 
 ;;(setq-default
 ;; default-frame-alist
